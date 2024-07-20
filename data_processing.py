@@ -1,6 +1,6 @@
 import fitz
 import re
-
+import json
 
 my_path = 'book.pdf'
 doc = fitz.open(my_path)
@@ -23,6 +23,10 @@ def para_split(text): #Split the data into paragraphs
     return new_paras
 
 paragraphs = para_split(data)
+para_export = {"paragraphs" : paragraphs}
+with open('pre_paras.json', 'w') as f:
+    json.dump(para_export, f)
+
 
 
 
